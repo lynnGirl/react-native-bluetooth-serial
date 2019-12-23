@@ -22,9 +22,6 @@ android {
         versionCode 1
         // get version name from package.json version
         versionName "1.0"
-        ndk {
-            abiFilters "armeabi-v7a", "x86"
-        }
     }
 }
 
