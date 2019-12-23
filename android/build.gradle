@@ -1,38 +1,37 @@
 buildscript {
     repositories {
         jcenter()
+        maven {
+            url 'https://maven.google.com/'
+        }
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.1.0'
+        classpath 'com.android.tools.build:gradle:3.1.4'
     }
 }
 
 apply plugin: 'com.android.library'
 
 android {
-	compileSdkVersion 27
-	buildToolsVersion "27.0.2"
-	
-	/*
-	defaultConfig {
-		minSdkVersion 16
-		targetSdkVersion 22
-		versionCode 1
-		versionName "1.0"
-		ndk {
-			abiFilters "armeabi-v7a", "x86"
-		}
-	}
-	*/
+    compileSdkVersion 27
+
+    defaultConfig {
+        minSdkVersion 16
+        targetSdkVersion 27
+        versionCode 1
+        // get version name from package.json version
+        versionName "1.0"
+        ndk {
+            abiFilters "armeabi-v7a", "x86"
+        }
+    }
 }
 
 repositories {
-    mavenCentral()
-    maven {
-        // All of React Native (JS, Obj-C sources, Android binaries) is installed from npm
-        url "$rootDir/../node_modules/react-native/android"
-    }
+    jcenter()
+    maven { url "https://maven.google.com" }
+    maven { url "https://jitpack.io" }
 }
 
 dependencies {
